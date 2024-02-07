@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body {
+	@apply  scroll-smooth
+}
+
+body {
+	@apply antialiased font-generalSans font-medium bg-[#020202] text-neutral-300
+}
+
+h1,h2,h3,h4,h5,h6 {
+	@apply font-satoshi
+}
+
+.slider-container {
+	animation: sliderTestimonials 15s linear infinite;
+}
+
+.slider-container.slide-2 {
+	animation: sliderTestimonials2 15s linear infinite;
+}
+
+@keyframes sliderTestimonials {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes sliderTestimonials2 {
+	0% {
+		transform: translateY(-10%);
+	}
+	50% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-10%);
+	}
+}

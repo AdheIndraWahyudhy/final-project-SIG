@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,400&f[]=satoshi@700,500,400&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="public/css/style.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="shortcut icon" href="public/assets/img/favicon.png" type="image/x-icon">
+	<title>Geoschools</title>
+</head>
+
+<body style="background-color: #ffff;">
+
+	<div class="relative" id="home">
+		<!-- navbar -->
+		<header class="flex flex-wrap lg:justify-start lg:flex-nowrap z-50 w-full bg-[#99002b] text-sm py-4">
+			<nav class="max-w-6xl w-full mx-auto px-5 lg:flex lg:items-center lg:justify-between" aria-label="Global">
+				<div class="border-red-50 flex items-center justify-between z-50 relative">
+					<a class="flex items-center" href="#">
+						<img class="w-16 h-auto rounded-lg mr-2" src="./public/assets/img/logo.png" alt="Logo">
+						<p>Geographic Core</p>
+					</a>
+					<div class="lg:hidden">
+						<button type="button"f
+							class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-neutral-800 bg-neutral-800/60 text-neutral-200 shadow-sm  disabled:opacity-50 disabled:pointer-events-none"
+							data-hs-collapse="#navbar-image-2" aria-controls="navbar-image-2" aria-label="Toggle navigation">
+							<svg class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
+								height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round">
+								<line x1="3" x2="21" y1="6" y2="6" />
+								<line x1="3" x2="21" y1="12" y2="12" />
+								<line x1="3" x2="21" y1="18" y2="18" />
+							</svg>
+							<svg class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+								width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round">
+								<path d="M18 6 6 18" />
+								<path d="m6 6 12 12" />
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div id="navbar-image-2"
+					class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow lg:block">
+					<div class="flex lg:items flex-col lg:flex-row justify-between pl-3 lg:pl-0 ">
+						<div
+							class="flex flex-col gap-4 sm:gap-6 mt-5 z-10 lg:flex-row lg:items-center lg:justify-end lg:mt-0 lg:ps-5 lg:mx-auto relative">
+							<a class="font-semibold text-white hover:text-white" href="#home" aria-current="page">Beranda</a>
+							<a class="font-semibold text-red-300 hover:text-white" href="schools.html">Sekolah</a>
+							<a class="font-semibold text-red-300 hover:text-white" href="./qgis/index.html">Maps</a>
+							<a class="font-semibold text-red-300 hover:text-white" href="./aboutus/index.html">Tentang Kami	</a>
+						</div>
+						<div class="mt-4 md:px-4 lg:mt-0">
+							<a href="https://www.umri.ac.id/" class="text-white hover:text-[#5f5858] py-2.5 px-5 bg-[#141E46] hover:bg-[#ffffff] rounded-full font-semibold flex flex-row justify-center items-center gap-3">
+								<img class="w-8" src="./public/assets/img/Logo_Umri-removebg-preview.png" alt="">
+								<p class="text-xs">Universitas Muhammadiyah Riau</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- banner -->
+		<section class="pt-10 lg:pt-14 overflow-hidden">
+			<div class="max-w-6xl mx-auto px-5">
+				<div class="text-center z-10 relative">
+					<div class="text-[#99002b] uppercase text-xs border px-6 py-2.5 rounded-full inline-block border-neutral-800 tracking-wide"
+						data-aos="fade-up">
+						Welcome To Geoschools</div>
+					<h1 class="text-[#99002b] mt-6 mb-5 text-3xl md:text-4xl lg:text-5xl max-w-3xl mx-auto !leading-snug font-satoshi font-bold"
+						data-aos="fade-up" data-aos-delay="100">
+						Layanan Sekolah Dasar </h1>
+					<p class="text-black max-w-xl mx-auto text-base sm:text-[18px]" data-aos="fade-up" data-aos-delay="200">
+						Memanfaatkan SIG Untuk Menampilkan Lokasi Sekolah Dasar Yang Berada Di Kota Pekanbaru.</p>
+				</div>
+				<div class="mt-14 sm:mt-16">
+					<img src="public/assets/img/anak-sd.png" data-aos="zoom-in-up" data-aos-delay="400"
+						class="mx-auto w-full max-w-3xl 2xl:max-w-4xl z-10 relative select-none" style="border-radius: 30%;" alt="">
+				</div>
+			</div>
+
+		</section>
+
+		<img src="public/assets/img/circle.svg" class="absolute top-0 left-1/2 -translate-x-1/2 select-none" alt="">
+	</div>
+
+	<section class="py-20 bg-[#ffff] overflow-hidden">
+		<div class="max-w-6xl mx-auto px-5">
+			<div class="overflow-hidden">
+				<h5 class="text-[#99002b] text-center font-semibold text-xl max-w-sm mx-auto" data-aos="fade-up">Didukung oleh Lembaga Pendidikan di Indonesia	
+				</h5>
+			</div>
+			<div class="mt-10">
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+					<div
+						class="rounded-2xl p-8 hover:bg-neutral-800/60 duration-500 flex items-center justify-center"
+						data-aos="fade-up">
+						<img src="public/assets/img/Logo_Umri-removebg-preview.png" class="mx-auto" alt="">
+					</div>
+					<div
+						class="rounded-2xl p-8 hover:bg-neutral-800/60 duration-500 flex items-center justify-center"
+						data-aos="fade-up" data-aos-delay="100">
+						<img src="public/assets/img/kampus_merdeka.png" class="mx-auto" alt="">
+					</div>
+					<div
+						class="rounded-2xl p-8 hover:bg-neutral-800/60 duration-500 flex items-center justify-center"
+						data-aos="fade-up" data-aos-delay="200">
+						<img src="public/assets/img/Tut_Wuri_Handayani.png" class="mx-auto" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 overflow-hidden " id="about">
+		<div class="max-w-6xl mx-auto px-5">
+			<div class="flex flex-wrap -mx-6">
+				<div class="w-full lg:w-[40%] px-6">
+					<img src="public/assets/img/SD-removebg-preview.png" class="rounded-[20px] mb-8 w-full lg:mb-0 lg:w-auto" alt="About Us"
+						data-aos="zoom-in-right">
+				</div>
+				<div class="w-full lg:w-[60%] px-6 my-auto">
+					<div class="text-[#99002b] uppercase text-xs border px-6 py-2.5 rounded-full inline-block border-neutral-800 tracking-wide"
+						data-aos="fade-up">
+						Deskripsi
+					</div>
+					<div class="overflow-hidden">
+						<h2 class="text-[#99002b] capitalize font-bold text-3xl md:text-4xl !leading-snug mt-6 mb-4" data-aos="fade-up"
+							data-aos-delay="50">Pengembangan Sistem Informasi Geografis Pemetaan Sekolah Dasar di Kota Pekanbaru</h2>
+					</div>
+					<div class="border-t border-neutral-800 my-6 py-6">
+						<div class="overflow-hidden">
+							<p class="mt-2 text-zinc-950 text-justify" data-aos="fade-up">Pendidikan adalah salah satu aspek penting dalam pembangunan suatu daerah. Dalam rangka meningkatkan efisiensi pengelolaan pendidikan, perlu adanya Sistem Informasi Geografis (SIG) yang mampu memetakan data sekolah dasar (SD) di Pekanbaru.
+							Dengan fokus pada pemetaan SD di Pekanbaru, kami dapat mengeksplorasi aplikasi konsep SIG dalam mengumpulkan, menganalisis, dan menyajikan informasi geografis secara efektif. Proses pengembangan website ini akan melibatkan penerapan teknologi SIG, termasuk pemrosesan data spasial, visualisasi peta, dan integrasi informasi sekolah dasar ke dalam sistem. Sebagai hasilnya, kami akan mendapatkan pengalaman langsung dalam mengaplikasikan 
+							keterampilan SIG, memahami kompleksitas geografis wilayah tertentu, dan menguji kemampuan mereka dalam mengatasi tantangan teknis.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="lg:mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-5 lg:gap-8">
+				<div
+					class="p-8 border-2 border-neutral-800 bg-[#ffff] hover:bg-[#99002b] hover:border-[#3730A3] duration-300 rounded-3xl text-center group"
+					data-aos="zoom-in-right">
+					<h2 class="text-5xl font-satoshi mb-4 group-hover:text-white duration-300">20+</h2>
+					<span class="block text-neutral-400 text-lg group-hover:text-white duration-300">Years of Experience</span>
+				</div>
+				<div
+					class="p-8 border-2 border-neutral-800 bg-[#ffff] hover:bg-[#99002b] hover:border-[#3730A3] duration-300 rounded-3xl text-center group"
+					data-aos="zoom-in-up">
+					<h2 class="text-5xl font-satoshi mb-4 group-hover:text-white duration-300">400+</h2>
+					<span class="block text-neutral-400 text-lg group-hover:text-white duration-300">Trustes Partners</span>
+				</div>
+				<div
+					class="p-8 border-2 border-neutral-800 bg-[#ffff] hover:bg-[#99002b] hover:border-[#3730A3] duration-300 rounded-3xl text-center group"
+					data-aos="zoom-in-left">
+					<h2 class="text-5xl font-satoshi mb-4 group-hover:text-white duration-300">99%</h2>
+					<span class="block text-neutral-400 text-lg group-hover:text-white duration-300">Positive Review</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-[#ffff] overflow-hidden" id="services">
+		<div class="max-w-6xl mx-auto px-5">
+			<div class="text-center max-w-xl mx-auto mb-12 overflow-hidden">
+				<div class="uppercase text-[#99002b] text-xs border px-6 py-2.5 rounded-full inline-block border-neutral-800 tracking-wide"
+					data-aos="fade-up">
+					Tujuan
+				</div>
+				<h2 class="mt-6 mb-5 text-[#99002b] text-2xl sm:text-3xl md:text-4xl capitalize max-w-3xl mx-auto !leading-snug  font-bold"
+					data-aos="fade-up" data-aos-delay="100">
+					Layanan pendidikan kami yang luar biasa</h2>
+			</div>
+			<div class="flex items-stretch flex-wrap -mx-4">
+				<div class="w-full sm:w-1/2 lg:w-1/3 px-4">
+					<div
+						class="p-8 rounded-3xl bg-[#141E46] hover:bg-[#99002b] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+						data-aos="zoom-in">
+						<h2 class="text-5xl font-bold mb-7 text-white">01</h2>
+						<h4 class="text-3xl text-white">Lokasi</h4>
+						<div class="mt-4 mb-6">
+							<p class="text-neutral-400 group-hover:text-white duration-300">Kami memetakan lokasi sekolah dasar di Pekanbaru menggunakan teknologi geospasial.</p>
+						</div>
+						<div class="mt-auto text-right">
+							<button
+								class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+									stroke="currentColor" class="w-7 h-7 text-white">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="w-full sm:w-1/2 lg:w-1/3 px-4 my-8 sm:my-0">
+					<div
+						class="p-8 rounded-3xl bg-[#141E46] hover:bg-[#99002b] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+						data-aos="zoom-in" data-aos-delay="100">
+						<h2 class="text-5xl font-bold mb-7 text-white">02</h2>
+						<h4 class="text-3xl text-white">Informasi</h4>
+						<div class="mt-4 mb-6">
+							<p class="text-neutral-400 group-hover:text-white duration-300">
+								Menyediakan informasi yang akurat dan terkini mengenai fasilitas, kondisi, dan kebutuhan SD di wilayah tersebut.
+							</p>
+						</div>
+						<div class="mt-auto text-right">
+							<button
+								class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+									stroke="currentColor" class="w-7 h-7 text-white">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="w-full sm:w-1/2 lg:w-1/3 px-4 sm:mt-8 lg:mt-0">
+					<div
+						class="p-8 rounded-3xl bg-[#141E46] hover:bg-[#99002b] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+						data-aos="zoom-in" data-aos-delay="200">
+						<h2 class="text-5xl font-bold mb-7 text-white">03</h2>
+						<h4 class="text-3xl text-white">Efisiensi</h4>
+						<div class="mt-4 mb-6">
+							<p class="text-neutral-400 group-hover:text-white duration-300">
+								Meningkatkan efisiensi pengelolaan data sekolah dasar untuk mendukung pengambilan keputusan strategis.
+							</p>
+						</div>
+						<div class="mt-auto text-right">
+							<button
+								class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+									stroke="currentColor" class="w-7 h-7 text-white">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 overflow-hidden" id="contact">
+		<div class="max-w-6xl mx-auto px-5">
+			<div class="text-center max-w-sm mx-auto mb-12 overflow-hidden">
+				<div class="uppercase text-[#99002b] text-xs border px-6 py-2.5 rounded-full inline-block border-neutral-800 tracking-wide"
+					data-aos="fade-up">
+					hubungi kami
+				</div>
+				<h2 class="mt-6 mb-5 text-[#99002b] text-2xl sm:text-3xl md:text-4xl capitalize max-w-3xl mx-auto !leading-snug  font-bold"
+					data-aos="fade-up" data-aos-delay="100">
+					butuh bantuan? segera hubungi kami
+				</h2>
+			</div>
+			<div class="mb-6 flex flex-wrap justify-center -mx-4 overflow-hidden">
+				<div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+					<div class="relative border border-neutral-800 rounded-full px-1.5 h-[70px] flex items-center gap-5 group"
+						data-aos="fade-up">
+						<img src="public/assets/icons/wa.svg" class="z-10 ml-3" alt="">
+						<div>
+							<h2 class="hover:text-[#FF6969] font-bold text-lg md:text-xl ml-3 z-10 relative">0812-3456-789</h2>
+						</div>
+						<div class="p-1.5 absolute left-0 w-full">
+							<div
+								class="w-14 h-14 flex items-center group-hover:w-full justify-center bg-[#99002b] rounded-full duration-500 ">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+					<div class="relative border border-neutral-800 rounded-full px-1.5 h-[70px] flex items-center gap-5 group"
+						data-aos="fade-up" data-aos-delay="100">
+						<img src="public/assets/icons/gmail.svg" class="z-10 ml-3" alt="">
+						<div>
+							<h2 class="font-bold text-lg md:text-xl ml-3 z-10 relative">contact@Geoschools.com</h2>
+						</div>
+						<div class="p-1.5 absolute left-0 w-full">
+							<div
+								class="w-14 h-14 flex items-center group-hover:w-full justify-center bg-[#99002b] rounded-full duration-500 ">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+					<div class="relative border border-neutral-800 rounded-full px-1.5 h-[70px] flex items-center gap-5 group"
+						data-aos="fade-up" data-aos-delay="200">
+						<img src="public/assets/icons/ig.svg" class="z-10 ml-3" alt="">
+						<div>
+							<h2 class="font-bold text-lg md:text-xl ml-3 z-10 relative">@Geoschools</h2>
+						</div>
+						<div class="p-1.5 absolute left-0 w-full">
+							<div
+								class="w-14 h-14 flex items-center group-hover:w-full justify-center bg-[#99002b] rounded-full duration-500 ">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<footer class="py-10 bg-[#99002b] overflow-hidden">
+		<div class="max-w-6xl mx-auto px-5 border-b border-[#FFF5E0] mb-6 pb-6">
+		  	<div class="flex flex-wrap justify-end -mx-5">
+				<div class="w-full md:w-1/2 lg:w-1/3 p-5">
+			  		<div class="overflow-hidden">
+						<img src="./public/assets/img/logo.jpg" class="w-[130px] mx-auto md:mx-0 rounded-lg" alt="Logo" data-aos="zoom-in-right">
+						<h3 class="text-center md:text-left">Geographic Core</h3>
+						<div class="mt-4 text-white text-center md:text-left max-w-sm mx-auto md:mx-0" data-aos="fade-up"
+				  			data-aos-delay="100">
+				  			Geoschools adalah website layanan pendidikan menggunakan Sistem Informasi Geografis
+						</div>
+				  	</div>
+				</div>
+				<!-- perubahan -->
+				<div class="w-full md:w-1/2 lg:w-2/3 md:p-4 sm:p-8">
+			  		<div class="flex flex-col items-center justify-center md:flex-row md:justify-end md:items-start ">
+			  		<!-- <div class="flex flex-wrap items-start lg:justify-end justify-start -mx-4"> -->
+						<!-- <div class="w-full m-6 border  sm:w-1/2 lg:w-1/4 "> -->
+						<div class="text-center  w-4/5 sm:pb-10 md:pb-0 md:border-none">
+				  			<div class="overflow-hidden">
+								<h4 class="text-lg text-white underline md:no-underline" data-aos="fade-up">Halaman</h4>
+				  			</div>
+				  			<ul class="mt-3 text-white space-y-1.5 overflow-hidden">
+								<li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">Sekolah</a></li>
+								<li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">Maps</a></li>
+								<li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">Tentang Kami</a></li>
+				  			</ul>
+						</div>
+						<!-- <div class="w-full sm:w-1/2 lg:w-1/4"> -->
+						<div class="text-center mt-3 md:mt-0">
+				  			<div class="overflow-hidden">
+								<h4 class="text-lg text-white underline md:no-underline" data-aos="fade-up">Kontak</h4>
+				  			</div>
+				  			<ul class="mt-3 text-white space-y-1.5 overflow-hidden">
+								<li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">contact@geoschools.com</a></li>
+								<li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">(0761) 123 4567</a></li>
+				  			</ul>
+						</div>
+			  		</div>
+				</div>
+		  	</div>
+		</div>
+		<div class="max-w-6xl mx-auto px-5 sm:flex sm:flex-wrap sm:items-center text-center sm:text-left sm:justify-between font-satoshi text-white">
+		  	<div class="font-bold mb-3 sm:mb-0">
+				Copyright © 2023 Geoschools
+		  	</div>
+		  	<div class="font-bold">
+				Build by <a href="" target="_blank" class="text-[#FF6969] hover:underline">Team Geographic Core</a>
+		  	</div>
+		</div>
+	</footer>
+
+	<script src="public/preline/dist/preline.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 800,
+			once: true
+		});
+	</script>
+</body>
+
+</html>

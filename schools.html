@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,400&f[]=satoshi@700,500,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      rel="shortcut icon"
+      href="public/assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <title>Daftar sekolah</title>
+    <style>
+      .test {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      /* block-$ */
+      .block-effect {
+        font-size: calc(8px + 6vw);
+      }
+
+      .block-reveal {
+        --t: calc(var(--td) + var(--d));
+        color: transparent;
+        padding: 4px;
+        position: relative;
+        overflow: hidden;
+        animation: revealBlock 0s var(--t) forwards;
+      }
+
+      .block-reveal::after {
+        content: "";
+        width: 0%;
+        height: 100%;
+        padding-bottom: 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--bc);
+        animation: revealingIn var(--td) var(--d) forwards,
+          revealingOut var(--td) var(--t) forwards;
+      }
+
+      /* animations */
+      @keyframes revealBlock {
+        100% {
+          color: #0f0f0f;
+        }
+      }
+
+      @keyframes revealingIn {
+        0% {
+          width: 0;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+
+      @keyframes revealingOut {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color: #ffffff">
+    <div class="relative" id="home">
+      <!-- navbar -->
+      <header class="flex flex-wrap lg:justify-start lg:flex-nowrap z-50 w-full bg-[#99002b] text-sm py-4">
+        <nav class="max-w-6xl w-full mx-auto px-5 lg:flex lg:items-center lg:justify-between" aria-label="Global">
+          <div class="border-red-50 flex items-center justify-between z-50 relative">
+            <a class="flex items-center" href="#">
+              <img class="w-16 h-auto rounded-lg mr-2" src="./public/assets/img/logo.png" alt="Logo">
+              <p>Geographic Core</p>
+            </a>
+            <div class="lg:hidden">
+              <button type="button"f
+                class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-neutral-800 bg-neutral-800/60 text-neutral-200 shadow-sm  disabled:opacity-50 disabled:pointer-events-none"
+                data-hs-collapse="#navbar-image-2" aria-controls="navbar-image-2" aria-label="Toggle navigation">
+                <svg class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" x2="21" y1="6" y2="6" />
+                  <line x1="3" x2="21" y1="12" y2="12" />
+                  <line x1="3" x2="21" y1="18" y2="18" />
+                </svg>
+                <svg class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div id="navbar-image-2"
+            class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow lg:block">
+            <div class="flex lg:items flex-col lg:flex-row justify-between pl-3 lg:pl-0 ">
+              <div
+                class="flex flex-col gap-4 sm:gap-6 mt-5 z-10 lg:flex-row lg:items-center lg:justify-end lg:mt-0 lg:ps-5 lg:mx-auto relative">
+                <a class="font-semibold text-red-300 hover:text-white" href="index.html" aria-current="page">Beranda</a>
+                <a class="font-semibold text-white hover:text-white" href="#">Sekolah</a>
+                <a class="font-semibold text-red-300 hover:text-white" href="./qgis/index.html">Maps</a>
+                <a class="font-semibold text-red-300 hover:text-white" href="./aboutus/index.html">Tentang Kami	</a>
+              </div>
+              <div class="mt-4 md:px-4 lg:mt-0">
+                <a href="https://www.umri.ac.id/" class="text-white hover:text-[#5f5858] py-2.5 px-5 bg-[#141E46] hover:bg-[#ffffff] rounded-full font-semibold flex flex-row justify-center items-center gap-3">
+                  <img class="w-8" src="./public/assets/img/Logo_Umri-removebg-preview.png" alt="">
+                  <p class="text-xs">Universitas Muhammadiyah Riau</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- banner -->
+      <section class="pt-10 lg:pt-14 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-5">
+          <div class="text-center z-10 relative">
+            <!-- <div class="test border p-0 m-0">
+              <h1 class="block-effect" style="--td: 1.2s">
+                <div class="block-reveal text-5xl" style="--bc: #111111; --d: 0.1s">
+                  Tentukan
+                </div>
+                <div class="block-reveal text-8xl" style="--bc: #bf4060; --d: 0.5s">
+                  SD Pilihanmu!
+                </div>
+              </h1>
+            </div> -->
+            <h1 class="border-b-4 border-[black] text-[#030303] mt-6 mb-8 text-3xl md:text-4xl lg:text-5xl max-w-3xl mx-auto !leading-snug font-satoshi font-bold"
+						data-aos="fade-up" data-aos-delay="100">
+						    Daftar <span class="text-[#99002b]">Sekolah</span> Dasar 
+            </h1>
+            <p
+              class="text-neutral-400 max-w-xl mx-auto text-base sm:text-[18px]"
+              style="color: #99002b"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              Eksplorasi Ilmu, Kreativitas, dan Moralitas di Lingkungan Belajar
+              Berkualitas
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <img
+        src="public/assets/img/circle.svg"
+        class="absolute top-0 left-1/2 -translate-x-1/2 select-none"
+        alt=""
+      />
+    </div>
+
+    <section
+      class="py-20 bg-[#111111] overflow-hidden"
+      id="services"
+      style="background-color: #ffffff"
+    >
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="flex items-stretch flex-wrap -mx-4">
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">MIN 3 Pekanbaru</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/min 3 pekanbaru.jpg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah dasar tempat belajar dasar, membentuk dasar karakter,
+                  dan mengembangkan potensi anak-anak secara holistik.
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sekolahloka.com/data/min-3-pekanbaru/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDIT Az Zuhra</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SDIT az-zuhra.jpg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Tempat pendidikan awal yang membimbing anak-anak menuju
+                  pembelajaran dan pengembangan diri yang optimal
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sdit.azzahra.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDN 11 Pekanbaru</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SDN 11 Pekanbaru.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  "Landasan pendidikan formal yang membentuk fondasi
+                  intelektual, sosial, dan emosional bagi generasi muda
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/B8E0ABC651D8EF328948"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDIT Al-Manar</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SDIT al-manar.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Lingkungan belajar yang mendukung perkembangan kognitif dan
+                  sosial anak-anak pada tahap awal pendidikan
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://almanar.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Muhammadiyah 3</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Muhammadiyah 3 Unggulan.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah dasar adalah tahap pertama pembelajaran formal yang
+                  mempersiapkan anak-anak untuk masa depan
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://mimuhammadiyah3.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">Darma Yudha Elementary School</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/Darma Yudha Elementary School.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Institusi pendidikan esensial yang memfasilitasi pembelajaran,
+                  kreativitas, dan pengembangan karakter pada anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://darmayudha.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Negeri 41</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Negeri 41 Pekanbaru.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah awal yang membimbing anak-anak melalui fase
+                  pembelajaran penting dalam proses pendidikan mereka
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/2F03779CF6F283849C03"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Muhammadiyah 1</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Muhammadiyah 1.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Landasan pertama bagi ilmu pengetahuan, etika, dan
+                  keterampilan hidup untuk generasi penerus bangsa
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sekolahloka.com/data/sd-muhammadiyah-1-9/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Santa Maria</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD ST. MARIA pekanbaru.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Lembaga pendidikan dasar yang membantu membentuk kepribadian,
+                  moralitas, dan kemampuan akademis anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sdsantamaria.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDN 34 Rumbai</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD 34 Rumbai.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah dasar berperan sebagai panggung awal dalam pertunjukan
+                  prestasi, bakat, dan potensi anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/6D2C0C08E1CF3C4B7277"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDN 2 Pekanbaru</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Negeri 2 Rumbai.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Lingkungan belajar yang merangsang rasa ingin tahu dan
+                  membimbing eksplorasi anak-anak pada tingkat dasar
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://idalamat.com/alamat/236993/sdn-002-pekanbaru-riau"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDN 149 Pekanbaru</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Negeri 149 Pekanbaru.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Institusi pendidikan dasar yang membantu membuka pintu
+                  keajaiban pembelajaran bagi anak-anak masa depan
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/C0B63210E1145BF191F5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Alumna Indonesia</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Alumna Indonesia Islamic School.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah awal sebagai fondasi pembentukan karakter, moralitas,
+                  dan pengetahuan untuk generasi mendatang
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sd-sekolah-dasar-alumna-indonesia.business.site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDN 018 Pekanbaru</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SDN 018.jpg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Landasan pertama pendidikan formal yang menumbuhkan
+                  kecerdasan, kepribadian, dan kreativitas anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/5BD51FDB41EF23ADD407"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDN 5 Pekanbaru</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Negeri 5 Pekanbaru.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Tempat pendidikan yang memberikan dasar utama untuk
+                  keberhasilan akademis dan perkembangan personal anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/7F9E590E23268FBC32EE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Muhammadiyah 02</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD Muhammadiyah 02.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah dasar menciptakan fondasi yang kokoh untuk pertumbuhan
+                  intelektual dan sosial anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sekolahloka.com/data/sd-muhammadiyah-2-12/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD 017 Hikmah</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD 017 Hikmah Pekanbaru.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Lingkungan belajar yang memberikan panggung pertama bagi
+                  penemuan, eksplorasi, dan pertumbuhan kreatif anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/EBDF3AB10B524564EDB3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDIT Imam Asy Syafi'i</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SDIT Imam Asy Syafi'i.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Institusi pendidikan dasar yang memberdayakan anak-anak dengan
+                  pengetahuan dan keterampilan esensial
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://sditimamsyafiipku.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SDIT Fadhilah</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/Sekolah Dasar Islam Terpadu Fadhilah.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Sekolah awal sebagai batu loncatan penting dalam perjalanan
+                  pendidikan yang membimbing anak-anak menuju keunggulan
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/036D065E684987C5D7F8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="w-full sm:w-1/2 lg:w-1/3 px-4"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="p-8 rounded-3xl bg-[#242424] hover:bg-[#423CA9] duration-300 transition-all ease-in-out group h-full flex flex-col hover:scale-105"
+              onmouseover="this.style.backgroundColor='#99002b'"
+              onmouseout="this.style.backgroundColor='#242424'"
+              data-aos="zoom-in"
+            >
+              <h4 class="text-3xl text-white">SD Kusuma harapan Bangsa</h4>
+              <div class="mt-3 mb-4">
+                <img
+                  src="public/assets/sekolah/SD KUSUMA HARAPAN BANGSA.jpeg"
+                  style="border-radius: 10%; margin-bottom: 6px"
+                  alt=""
+                />
+                <p class="text-neutral-400 group-hover:text-white duration-300">
+                  Landasan pendidikan formal yang membuka jalan bagi
+                  pengembangan karakter, bakat, dan potensi individual anak-anak
+                </p>
+              </div>
+              <div class="mt-auto text-right">
+                <a
+                  href="https://dapo.kemdikbud.go.id/sekolah/096982559D726736C6DD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="text-right border border-neutral-700 rounded-full p-4 group-hover:border-white duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-20 overflow-hidden"
+      id="testimonials"
+      style="background-color: #ffffff"
+    >
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="flex flex-wrap items-center -mx-6">
+          <div class="w-full xl:w-2/5 px-6 mb-32 xl:mb-0">
+            <div class="relative max-w-xl xl:max-w-md mx-auto xl:mx-0">
+              <div
+                class="uppercase text-xs border px-6 py-2.5 rounded-full inline-block border-neutral-800 tracking-wide"
+                style="color: #99002b"
+                data-aos="fade-right"
+              >
+                Testimonial
+              </div>
+              <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-satoshi font-bold !leading-snug capitalize mt-6"
+                style="color: #99002b"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
+                Puji dan Cinta untuk Sekolah Dasar Pilihan
+              </h1>
+              <div class="mt-4">
+                <p
+                  class="text-neutral-400"
+                  style="color: #99002b"
+                  data-aos="fade-right"
+                  data-aos-delay="200"
+                >
+                  Suara Hati Orang Tua dan Peserta Didik, Pengalaman Positif,
+                  Pendidikan Berkualitas, dan Persiapan Optimal untuk Masa Depan
+                  Gemilang
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="relative w-full xl:w-3/5 px-6 overflow-hidden h-186">
+            <div
+              class="absolute top-0 left-0 z-10 w-full h-52 bg-gradient-to-b from-[#ffff] to-transparent"
+            ></div>
+            <div
+              class="absolute z-10 bottom-0 left-0 w-full h-52 bg-gradient-to-t from-[#ffff] to-transparent"
+            ></div>
+            <div class="max-w-xl md:max-w-3xl mx-auto xl:mr-0">
+              <div class="flex flex-wrap -mx-4">
+                <div class="w-full sm:w-1/2 px-4">
+                  <div class="h-full">
+                    <div class="slider-container">
+                      <div
+                        class="mb-6 bg-[#1B1B1B] p-6 rounded-3xl border-l-[5px] border-t-[5px] border-[#2D2878]"
+                      >
+                        <div class="border-b mb-6 pb-6 border-[#2D2D2D]">
+                          <p class="text-neutral-300">
+                            SD pilihan disini membimbing anak saya dengan cara
+                            yang menginspirasi, menyediakan fondasi kokoh, dan
+                            memupuk kecintaan pada pembelajaran
+                          </p>
+                          <div class="flex items-center gap-1 mt-4">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="public/assets/sekolah/pr1.jpeg"
+                            class="shrink-0 w-12 rounded-full"
+                            alt=""
+                          />
+                          <div>
+                            <h6 class="text-neutral-200 text-lg">Nina S</h6>
+                            <span class="block text-neutral-400"
+                              >Wali Murid</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mb-6 bg-[#1B1B1B] p-6 rounded-3xl border-l-[5px] border-t-[5px] border-[#2D2878]"
+                      >
+                        <div class="border-b mb-6 pb-6 border-[#2D2D2D]">
+                          <p class="text-neutral-300">
+                            Saya senang belajar di SD pilihan ini! Guru-gurunya
+                            ramah, pembelajarannya seru, dan teman-temannya
+                            hebat!
+                          </p>
+                          <div class="flex items-center gap-1 mt-4">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="public/assets/sekolah/pr2.jpeg"
+                            class="shrink-0 w-12 rounded-full"
+                            alt=""
+                          />
+                          <div>
+                            <h6 class="text-neutral-200 text-lg">Dwi Putri</h6>
+                            <span class="block text-neutral-400">Murid</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mb-6 bg-[#1B1B1B] p-6 rounded-3xl border-l-[5px] border-t-[5px] border-[#1B1B1B]"
+                      >
+                        <div class="border-b mb-6 pb-6 border-[#2D2D2D]">
+                          <p class="text-neutral-300">
+                            SD ini adalah awal yang luar biasa. Saya merasa siap
+                            menghadapi tantangan hidup berkat fondasi yang
+                            ditanamkan di sini
+                          </p>
+                          <div class="flex items-center gap-1 mt-4">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="public/assets/sekolah/lk1.jpeg"
+                            class="shrink-0 w-12 rounded-full"
+                            alt=""
+                          />
+                          <div>
+                            <h6 class="text-neutral-200 text-lg">
+                              Budi Herman
+                            </h6>
+                            <span class="block text-neutral-400">Alumni</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/2 px-4 hidden sm:block">
+                  <div class="h-full">
+                    <div class="slider-container slide-2">
+                      <div
+                        class="mb-6 bg-[#1B1B1B] p-6 rounded-3xl border-l-[5px] border-t-[5px] border-[#2D2878]"
+                      >
+                        <div class="border-b mb-6 pb-6 border-[#2D2D2D]">
+                          <p class="text-neutral-300">
+                            Pilihan terbaik untuk pendidikan dasar. Anak saya
+                            tumbuh cerdas dan berbudi luhur di sd pilihan ini
+                          </p>
+                          <div class="flex items-center gap-1 mt-4">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="public/assets/sekolah/pr3.jpeg"
+                            class="shrink-0 w-12 rounded-full"
+                            alt=""
+                          />
+                          <div>
+                            <h6 class="text-neutral-200 text-lg">Rina Winda</h6>
+                            <span class="block text-neutral-400"
+                              >Orang tua</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mb-6 bg-[#1B1B1B] p-6 rounded-3xl border-l-[5px] border-t-[5px] border-[#2D2878]"
+                      >
+                        <div class="border-b mb-6 pb-6 border-[#2D2D2D]">
+                          <p class="text-neutral-300">
+                            SD pilihan disini menyenangkan! Pelajaran berguna,
+                            kegiatan kreatif, dan suasana sekolah yang mendukung
+                            pertumbuhan pribadi
+                          </p>
+                          <div class="flex items-center gap-1 mt-4">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="public/assets/sekolah/lk2.jpeg"
+                            class="shrink-0 w-12 rounded-full"
+                            alt=""
+                          />
+                          <div>
+                            <h6 class="text-neutral-200 text-lg">
+                              Adi Ramdhan
+                            </h6>
+                            <span class="block text-neutral-400">Murid</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mb-6 bg-[#1B1B1B] p-6 rounded-3xl border-l-[5px] border-t-[5px] border-[#2D2878]"
+                      >
+                        <div class="border-b mb-6 pb-6 border-[#2D2D2D]">
+                          <p class="text-neutral-300">
+                            SD pilihan yang luar biasa! Pengajar berdedikasi,
+                            kurikulum beragam, memberikan fondasi kuat untuk
+                            masa depan anak-anak
+                          </p>
+                          <div class="flex items-center gap-1 mt-4">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              class="w-5 h-5 text-yellow-600"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="public/assets/sekolah/pr4.jpeg"
+                            class="shrink-0 w-12 rounded-full"
+                            alt=""
+                          />
+                          <div>
+                            <h6 class="text-neutral-200 text-lg">Lia Martha</h6>
+                            <span class="block text-neutral-400"
+                              >Orang tua</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 bg-[#99002b] overflow-hidden">
+      <div class="max-w-6xl mx-auto px-5 border-b border-[#FFF5E0] mb-6 pb-6">
+          <div class="flex flex-wrap justify-end -mx-5">
+          <div class="w-full md:w-1/2 lg:w-1/3 p-5">
+              <div class="overflow-hidden">
+              <img src="./public/assets/img/logo.jpg" class="w-[130px] mx-auto md:mx-0 rounded-lg" alt="Logo" data-aos="zoom-in-right">
+              <h3 class="text-center md:text-left">Geographic Core</h3>
+              <div class="mt-4 text-white text-center md:text-left max-w-sm mx-auto md:mx-0" data-aos="fade-up"
+                  data-aos-delay="100">
+                  Geoschools adalah website layanan pendidikan menggunakan Sistem Informasi Geografis
+              </div>
+              </div>
+          </div>
+          <!-- perubahan -->
+          <div class="w-full md:w-1/2 lg:w-2/3 md:p-4 sm:p-8">
+              <div class="flex flex-col items-center justify-center md:flex-row md:justify-end md:items-start ">
+              <!-- <div class="flex flex-wrap items-start lg:justify-end justify-start -mx-4"> -->
+              <!-- <div class="w-full m-6 border  sm:w-1/2 lg:w-1/4 "> -->
+              <div class="text-center  w-4/5 sm:pb-10 md:pb-0 md:border-none">
+                  <div class="overflow-hidden">
+                  <h4 class="text-lg text-white underline md:no-underline" data-aos="fade-up">Halaman</h4>
+                  </div>
+                  <ul class="mt-3 text-white space-y-1.5 overflow-hidden">
+                  <li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">Sekolah</a></li>
+                  <li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">Maps</a></li>
+                  <li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">Tentang Kami</a></li>
+                  </ul>
+              </div>
+              <!-- <div class="w-full sm:w-1/2 lg:w-1/4"> -->
+              <div class="text-center mt-3 md:mt-0">
+                  <div class="overflow-hidden">
+                  <h4 class="text-lg text-white underline md:no-underline" data-aos="fade-up">Kontak</h4>
+                  </div>
+                  <ul class="mt-3 text-white space-y-1.5 overflow-hidden">
+                  <li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">contact@geoschools.com</a></li>
+                  <li><a href="#" class="inline-block hover:text-[#FF6969] duration-300" data-aos="fade-up">(0761) 123 4567</a></li>
+                  </ul>
+              </div>
+              </div>
+          </div>
+          </div>
+      </div>
+      <div class="max-w-6xl mx-auto px-5 sm:flex sm:flex-wrap sm:items-center text-center sm:text-left sm:justify-between font-satoshi text-white">
+          <div class="font-bold mb-3 sm:mb-0">
+          Copyright © 2023 Geoschools
+          </div>
+          <div class="font-bold">
+          Build by <a href="" target="_blank" class="text-[#FF6969] hover:underline">Team Geographic Core</a>
+          </div>
+      </div>
+    </footer>
+
+    <script src="public/preline/dist/preline.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+  </body>
+</html>
